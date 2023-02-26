@@ -16,3 +16,5 @@ hugo.linux
 .idea
 /static/css
 
+.DS_STORE
+
