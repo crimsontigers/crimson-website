@@ -315,7 +315,7 @@ div.album-container div.new-release:hover > * {
     margin: 0;
     border-radius: 0;
     background-attachment: fixed;
-    background-size: auto 100%;
+    background-size: auto 100vh;
     background-position: top;
   }
   div.album-container div.new-release h3 {
