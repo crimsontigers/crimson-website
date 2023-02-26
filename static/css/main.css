@@ -326,7 +326,7 @@ div.album-container div.new-release:hover > * {
     margin: 2.5vw;
   }
   div.album-container div.new-release:hover, div.album-container div.new-release.show-details {
-    background-size: auto 100%;
+    background-size: auto 100vh;
   }
   div.album-container div.new-release:hover > *, div.album-container div.new-release.show-details > * {
     opacity: 1;
