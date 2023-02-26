@@ -1,0 +1,8 @@
+Soundcloud:
+  https://developers.soundcloud.com/docs/api/buttons-logos
+
+Spotify:
+  https://developer.spotify.com/branding-guidelines/
+
+Apple Music:
+  https://www.apple.com/itunes/marketing-on-music/identity-guidelines.html#apple-music-icon

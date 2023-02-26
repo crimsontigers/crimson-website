@@ -1,0 +1,78 @@
+<header id="header">
+    <img id="banner" src="/banner_edited.jpg">
+
+    <nav id="left-nav">
+        <ul>
+            <li><a href="/bio">
+                <span>Bio</span>
+            </a></li>
+            <li><a href="/new-releases">
+                <span>New Releases</span>
+            </a></li>
+            <li><a href="/gallery">
+                <span>Gallery</span>
+            </a></li>
+            <li><a href="/music-videos">
+                <span>Music Videos</span>
+            </a></li>
+        </ul>
+    </nav>
+
+    <div class="logo">
+        {{ if not .IsHome }}
+        <a href="/">
+            <img src="/logo_edited.png">
+        </a>
+        {{ else }}
+        <img src="/logo_edited.png">
+        {{ end }}
+    </div>
+
+    <nav id="right-nav">
+        <ul>
+            <li><a class="emblem" href='https://open.spotify.com/artist/1KbojpiEHrmXsO9DRvMbcD' target="_blank">
+                <img alt="Spotify" title="Spotify profile" src="/emblems/spotify.svg">
+            </a></li>
+            <li><a class="emblem" href='https://itunes.apple.com/us/artist/crimson-tigers/1493707766' target="_blank">
+                <img alt="Apple Music" title="Apple Music" src="/emblems/appleMusic.svg">
+            </a></li>
+            <li><a class="emblem" href='https://soundcloud.com/crimsontigers' target="_blank">
+                <img alt="Soundcloud" title="Soundcloud profile" src="/emblems/soundcloud.svg">
+            </a></li>
+        </ul>
+    </nav>
+
+    <nav id="top-nav">
+    <ul>
+      <li><a href="/bio">
+        <span>Bio</span>
+      </a></li>
+      <li><a href="/new-releases">
+        <span>New Releases</span>
+      </a></li>
+      <li><a href="/gallery">
+        <span>Gallery</span>
+      </a></li>
+      <li><a href="/music-videos">
+        <span>Music Videos</span>
+      </a></li>
+    </ul>
+    </nav>
+</header>
+
+<script type="text/javascript">
+let banner = document.getElementById("banner");
+let top_nav = document.getElementById("top-nav");
+let header = document.getElementById("header");
+window.addEventListener('scroll', function() {
+    banner.style.top = window.scrollY / 2.0 + 'px';
+
+    let header_bottom = header.getBoundingClientRect().bottom;
+    let nav_height = top_nav.getBoundingClientRect().height;
+    if(header_bottom < nav_height) {
+        top_nav.classList.add('show');
+    } else {
+        top_nav.classList.remove('show');
+    }
+});
+</script>
