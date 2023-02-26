@@ -87,15 +87,21 @@ div.album-container
     div.new-release
       margin: 0
       border-radius: 0
-      background-attachment: fixed
-      background-size: auto 100vh
-      background-position: top
+      // Fixed background not supported yet on most mobile browsers
+      //background-attachment: fixed
+      //background-size: auto 100vh
+      //background-position: top
       h3
         font-size: 8vw
       div.emblem-container img
         height: 20vw
         margin: 2.5vw
-    div.new-release:hover, div.new-release.show-details
-      background-size: auto 100vh
+
+    div.new-release:hover
+      background-size: 100% auto
+      > *
+        opacity: 0.0
+    div.new-release.show-details
+      background-size: 110% auto
       > *
         opacity: 1.0
