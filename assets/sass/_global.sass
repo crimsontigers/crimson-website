@@ -1,0 +1,48 @@
+@use "theme" as *
+
+*
+  font-family: 'Roboto', sans-serif
+
+a
+  text-decoration: none
+  color: $fg
+  transition: color 0.3s
+
+a:hover
+  color: $fg-hi
+
+h1, h2, h3
+  font-weight: normal
+  margin: 0
+
+h1, h2
+  font-size: 4rem
+
+body
+  margin: 0
+  background-color: $body-bg
+  color: $fg
+
+main
+  display: flex
+  flex-direction: column
+  align-items: center
+  section
+    width: min(60%, 50em)
+    margin: 2em
+
+a.emblem img
+  display: block
+  transform: scale(1)
+  filter: brightness(0.75)
+  transition-property: transform, filter
+  transition: 0.4s
+a.emblem:hover img
+  transform: scale(1.05)
+  filter: brightness(1)
+
+@media only screen and (max-width: 900px)
+  h1
+    font-size: 2.5em
+  main section
+    width: calc(100% - 4em)

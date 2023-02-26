@@ -1,0 +1,81 @@
+@use "theme" as *
+
+section[id="New Releases"]
+  width: 100%
+
+  h1
+    text-align: center
+
+div.album-container
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  padding-left: 2em
+  padding-right: 2em
+
+  div.new-release
+    position: relative
+    aspect-ratio: 1
+    background-size: 100% 100%
+    background-position: 0 0
+    margin: 2vw
+    text-align: center
+    border-radius: 0.4em
+    overflow: hidden
+
+    > *
+      opacity: 0.0
+      transition: opacity $anim
+
+    a.release-shade
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background-color: rgba(0,0,0, 0.6)
+      color: $fg
+    h3
+      position: absolute
+      left: 0
+      top: 25%
+      width: 100%
+      font-size: 2vw
+    div.emblem-container
+      position: absolute
+      left: 0
+      top: 60%
+      width: 100%
+      display: flex
+      justify-content: center
+      align-items: center
+      img
+        height: 6vw
+        margin: 1vw
+
+  div.new-release:hover > *
+    opacity: 1.0
+
+@media only screen and (max-width: 900px)
+  div.album-container
+    grid-template-columns: repeat(2, 1fr)
+    div.new-release
+      h3
+        font-size: 4vw
+      div.emblem-container img
+        height: 12vw
+        margin: 2vw
+
+@media only screen and (max-width: 500px)
+  section[id="New Releases"]
+    margin-bottom: 0
+  div.album-container
+    grid-template-columns: repeat(1, 1fr)
+    padding: 0
+    div.new-release
+      margin: 0
+      border-radius: 0
+      h3
+        font-size: 8vw
+      div.emblem-container img
+        height: 24vw
+        margin: 4vw
