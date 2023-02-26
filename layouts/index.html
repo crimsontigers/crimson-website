@@ -2,11 +2,10 @@
 
 {{ .Content -}}
 
-{{ range .Pages }}
-<section id={{ .Title }}>
-<h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-{{ .Render "li" }}
+{{ $page := .GetPage "/new-releases" }}
+<section id={{ $page.Title }}>
+<h1><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></h1>
+{{ $page.Render "li" }}
 </section>
-{{ end }}
 
 {{ partial "footer.html" . }}

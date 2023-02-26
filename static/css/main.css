@@ -116,6 +116,7 @@ header nav#top-nav {
 header nav#top-nav ul {
   flex-direction: row;
   margin: 0;
+  font-size: 1.5em;
   overflow: hidden;
 }
 header nav#top-nav ul li {
@@ -163,6 +164,9 @@ header nav#top-nav.show {
   }
   header nav#right-nav ul li a img {
     height: 4vh;
+  }
+  header nav#top-nav ul {
+    font-size: 3vw;
   }
 }
 footer {
@@ -220,25 +224,26 @@ section[id="New Releases"] h1 {
 
 div.album-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   padding-left: 2em;
   padding-right: 2em;
 }
 div.album-container div.new-release {
   position: relative;
   aspect-ratio: 1;
-  background-size: 100% 100%;
-  background-position: 0 0;
+  background-size: 100% auto;
+  background-position: center;
   margin: 2vw;
   text-align: center;
   border-radius: 0.4em;
   overflow: hidden;
+  transition: background-size 0.2s;
 }
 div.album-container div.new-release > * {
   opacity: 0;
   transition: opacity 0.2s;
 }
-div.album-container div.new-release a.release-shade {
+div.album-container div.new-release div.release-shade {
   position: absolute;
   top: 0;
   left: 0;
@@ -252,7 +257,7 @@ div.album-container div.new-release h3 {
   left: 0;
   top: 25%;
   width: 100%;
-  font-size: 2vw;
+  font-size: 1.5vw;
 }
 div.album-container div.new-release div.emblem-container {
   position: absolute;
@@ -264,23 +269,38 @@ div.album-container div.new-release div.emblem-container {
   align-items: center;
 }
 div.album-container div.new-release div.emblem-container img {
-  height: 6vw;
-  margin: 1vw;
+  height: 4vw;
+  margin: 0.5vw;
+}
+div.album-container div.new-release:hover {
+  background-size: 110% auto;
 }
 div.album-container div.new-release:hover > * {
   opacity: 1;
 }
 
+@media only screen and (max-width: 1200px) {
+  div.album-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  div.album-container div.new-release h3 {
+    font-size: 2vw;
+  }
+  div.album-container div.new-release div.emblem-container img {
+    height: 5.33vw;
+    margin: 0.66vw;
+  }
+}
 @media only screen and (max-width: 900px) {
   div.album-container {
     grid-template-columns: repeat(2, 1fr);
   }
   div.album-container div.new-release h3 {
-    font-size: 4vw;
+    font-size: 3vw;
   }
   div.album-container div.new-release div.emblem-container img {
-    height: 12vw;
-    margin: 2vw;
+    height: 8vw;
+    margin: 1vw;
   }
 }
 @media only screen and (max-width: 500px) {
@@ -294,13 +314,22 @@ div.album-container div.new-release:hover > * {
   div.album-container div.new-release {
     margin: 0;
     border-radius: 0;
+    background-attachment: fixed;
+    background-size: auto 100%;
+    background-position: top;
   }
   div.album-container div.new-release h3 {
     font-size: 8vw;
   }
   div.album-container div.new-release div.emblem-container img {
-    height: 24vw;
-    margin: 4vw;
+    height: 20vw;
+    margin: 2.5vw;
+  }
+  div.album-container div.new-release:hover, div.album-container div.new-release.show-details {
+    background-size: auto 100%;
+  }
+  div.album-container div.new-release:hover > *, div.album-container div.new-release.show-details > * {
+    opacity: 1;
   }
 }
 

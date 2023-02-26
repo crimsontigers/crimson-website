@@ -34,7 +34,7 @@
                 <img alt="Spotify" title="Spotify profile" src="/emblems/spotify.svg">
             </a></li>
             <li><a class="emblem" href='https://itunes.apple.com/us/artist/crimson-tigers/1493707766' target="_blank">
-                <img alt="Apple Music" title="Apple Music" src="/emblems/appleMusic.svg">
+                <img alt="Apple Music" title="Apple Music" src="/emblems/applemusic.svg">
             </a></li>
             <li><a class="emblem" href='https://soundcloud.com/crimsontigers' target="_blank">
                 <img alt="Soundcloud" title="Soundcloud profile" src="/emblems/soundcloud.svg">
@@ -64,6 +64,8 @@
 let banner = document.getElementById("banner");
 let top_nav = document.getElementById("top-nav");
 let header = document.getElementById("header");
+
+let releases = document.getElementsByClassName("new-release");
 window.addEventListener('scroll', function() {
     banner.style.top = window.scrollY / 2.0 + 'px';
 
@@ -73,6 +75,19 @@ window.addEventListener('scroll', function() {
         top_nav.classList.add('show');
     } else {
         top_nav.classList.remove('show');
+    }
+
+    if(window.matchMedia('only screen and (max-width: 500px)').matches) {
+        Array.from(releases).forEach((release) => {
+            let top = release.getBoundingClientRect().top;
+            let bottom = release.getBoundingClientRect().bottom;
+            let opticalCenter = window.innerHeight * 0.33
+            if (opticalCenter > top && opticalCenter < bottom) {
+                release.classList.add('show-details');
+            } else {
+                release.classList.remove('show-details');
+            }
+        });
     }
 });
 </script>

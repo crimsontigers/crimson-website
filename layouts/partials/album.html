@@ -1,11 +1,16 @@
 <div class="new-release" style="background-image: url('{{ .Param "album_art" | urls.Parse }}');">
-    <a class="release-shade" href="{{ .Permalink }}">
+    <div class="release-shade">
         <h3>{{ .Title }}</h3>
-    </a>
+    </div>
     <div class="emblem-container">
         {{ if isset .Params "spotify_url" }}
         <a class="emblem" href="{{ .Param "spotify_url" }}" target="_blank">
           <img src="/emblems/spotify.svg">
+        </a>
+        {{ end }}
+        {{ if isset .Params "applemusic_url" }}
+        <a class="emblem" href="{{ .Param "applemusic_url" }}" target="_blank">
+          <img src="/emblems/applemusic.svg">
         </a>
         {{ end }}
         {{ if isset .Params "soundcloud_url" }}

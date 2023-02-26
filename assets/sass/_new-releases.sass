@@ -8,25 +8,26 @@ section[id="New Releases"]
 
 div.album-container
   display: grid
-  grid-template-columns: repeat(3, 1fr)
+  grid-template-columns: repeat(4, 1fr)
   padding-left: 2em
   padding-right: 2em
 
   div.new-release
     position: relative
     aspect-ratio: 1
-    background-size: 100% 100%
-    background-position: 0 0
+    background-size: 100% auto
+    background-position: center
     margin: 2vw
     text-align: center
     border-radius: 0.4em
     overflow: hidden
+    transition: background-size $anim
 
     > *
       opacity: 0.0
       transition: opacity $anim
 
-    a.release-shade
+    div.release-shade
       position: absolute
       top: 0
       left: 0
@@ -39,7 +40,7 @@ div.album-container
       left: 0
       top: 25%
       width: 100%
-      font-size: 2vw
+      font-size: 1.5vw
     div.emblem-container
       position: absolute
       left: 0
@@ -49,21 +50,33 @@ div.album-container
       justify-content: center
       align-items: center
       img
-        height: 6vw
-        margin: 1vw
+        height: 4vw
+        margin: 0.5vw
 
-  div.new-release:hover > *
-    opacity: 1.0
+  div.new-release:hover
+    background-size: 110% auto
+    > *
+      opacity: 1.0
+
+@media only screen and (max-width: 1200px)
+  div.album-container
+    grid-template-columns: repeat(3, 1fr)
+    div.new-release
+      h3
+        font-size: 2vw
+      div.emblem-container img
+        height: 5.33vw
+        margin: 0.66vw
 
 @media only screen and (max-width: 900px)
   div.album-container
     grid-template-columns: repeat(2, 1fr)
     div.new-release
       h3
-        font-size: 4vw
+        font-size: 3vw
       div.emblem-container img
-        height: 12vw
-        margin: 2vw
+        height: 8vw
+        margin: 1vw
 
 @media only screen and (max-width: 500px)
   section[id="New Releases"]
@@ -74,8 +87,15 @@ div.album-container
     div.new-release
       margin: 0
       border-radius: 0
+      background-attachment: fixed
+      background-size: auto 100%
+      background-position: top
       h3
         font-size: 8vw
       div.emblem-container img
-        height: 24vw
-        margin: 4vw
+        height: 20vw
+        margin: 2.5vw
+    div.new-release:hover, div.new-release.show-details
+      background-size: auto 100%
+      > *
+        opacity: 1.0
